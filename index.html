@@ -21,6 +21,9 @@
         var sphere = document.querySelector("#sphere");
         sphere.addEventListener("mouseenter", function () {
             sphere.setAttribute("color", "#0f0");
+            const pos = sphere.getAttribute("position");
+            pos.z ++;
+            sphere.setAttribute("position", pos);
         });
         sphere.addEventListener("mouseleave", function () {
             sphere.setAttribute("color", "#EF2D5E");
