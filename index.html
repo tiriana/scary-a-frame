@@ -8,9 +8,9 @@
   </a-assets>
 
   <a-sphere id="scary" position="0 1.25 -30" radius="1.25" cursor-listener color="#EF2D5E"></a-sphere>
-  <a-plane id="watched" position="0 0 5" rotation="0 180 0" width="4" height="4" color="#7BC8A4"></a-plane>
+  <a-plane id="watched" position="0 0 5" rotation="0 180 0" width="20" height="20" color="rgba(0,0,0,0)"></a-plane>
 
-  <!-- <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder> -->
+  <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
   <a-sky id="background" src="#skyTexture" radius="60"></a-sky>
   <a-entity camera look-controls position="0 3 0">
     <a-entity cursor="fuse: true; fuseTimeout: 500"
@@ -22,13 +22,9 @@
         var watched = document.querySelector("#watched");
         var scary = document.querySelector("#scary");
         watched.addEventListener("mouseenter", function () {
-            scary.setAttribute("color", "#0f0");
             const pos = scary.getAttribute("position");
-            pos.z ++;
+            pos.z += 4;
             scary.setAttribute("position", pos);
-        });
-        watched.addEventListener("mouseleave", function () {
-            scary.setAttribute("color", "#EF2D5E");
         });
     </script>
   </a-entity>
