@@ -7,7 +7,7 @@
     <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
   </a-assets>
 
-  <a-sphere position="0 1.25 -15" radius="1.25" color="#EF2D5E"></a-sphere>
+  <a-sphere id="sphere" position="0 1.25 -15" radius="1.25" cursor-listener color="#EF2D5E"></a-sphere>
 
   <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
   <a-sky id="background" src="#skyTexture" radius="30"></a-sky>
@@ -17,6 +17,15 @@
               geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
               material="color: red; shader: flat">
     </a-entity>
+    <script>
+        var sphere = document.querySelector("#sphere");
+        sphere.addEventListener("mouseenter", function () {
+            sphere.setAttribute("color", "#0f0");
+        });
+        sphere.addEventListener("mouseleave", function () {
+            sphere.setAttribute("color", "#EF2D5E");
+        });
+    </script>
   </a-entity>
 </a-scene>
 </body>
