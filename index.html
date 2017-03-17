@@ -7,12 +7,12 @@
     <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
   </a-assets>
 
-  <a-sphere id="scary" position="0 1.25 -30" radius="1.25" cursor-listener color="#EF2D5E"></a-sphere>
+  <a-sphere id="scary" position="0 2 -30" radius="1.25" cursor-listener color="#EF2D5E"></a-sphere>
   <a-plane id="watched" position="0 0 5" rotation="0 180 0" width="20" height="20" material="opacity: 0"></a-plane>
 
   <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
   <a-sky id="background" src="#skyTexture" radius="60"></a-sky>
-  <a-entity camera look-controls position="0 3 0">
+  <a-entity camera look-controls position="0 2 0">
     <a-entity cursor="fuse: true; fuseTimeout: 500"
               position="0 0 -1"
               geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
@@ -23,8 +23,11 @@
         var scary = document.querySelector("#scary");
         watched.addEventListener("mouseenter", function () {
             const pos = scary.getAttribute("position");
-            pos.z += 4;
-            scary.setAttribute("position", pos);
+            if (pos.z < -3) {
+              pos.z += 4;
+              scary.setAttribute("position", pos);
+            }
+
         });
     </script>
   </a-entity>
