@@ -11,8 +11,12 @@
 
   <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
   <a-sky id="background" src="#skyTexture" radius="30"></a-sky>
-  <a-entity position="0 0 3.8">
-    <a-camera></a-camera>
+  <a-entity camera look-controls position="0 5 0">
+    <a-entity cursor="fuse: true; fuseTimeout: 500"
+              position="0 0 -1"
+              geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+              material="color: red; shader: flat">
+    </a-entity>
   </a-entity>
 </a-scene>
 </body>
